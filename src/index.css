@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-paper font-body text-ink antialiased; }
+  h1, h2, h3, h4 { @apply font-display tracking-tight; }
+  :focus-visible { outline: 3px solid #7C3AED; outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-[1440px] px-4 sm:px-8 lg:px-12; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full border-[1.5px] border-ink px-6 py-3 font-label text-sm font-bold uppercase tracking-wider shadow-hard transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg active:translate-x-0.5 active:translate-y-0.5 active:shadow-hard-sm disabled:pointer-events-none disabled:opacity-50; }
+  .btn-primary { @apply bg-violet text-white; }
+  .btn-coral { @apply bg-coral text-ink; }
+  .btn-mint { @apply bg-mint text-ink; }
+  .btn-citrus { @apply bg-citrus text-ink; }
+  .btn-ghost { @apply bg-paper text-ink shadow-none hover:shadow-hard; }
+  .btn-sm { @apply px-4 py-2 text-xs; }
+  .icon-btn { @apply relative inline-flex h-11 w-11 items-center justify-center rounded-full border-[1.5px] border-transparent transition hover:border-ink hover:bg-white; }
+  .card { @apply rounded-lg border-[1.5px] border-ink bg-white shadow-hard; }
+  .chip { @apply inline-flex items-center rounded-full border border-ink px-3 py-1 font-label text-[11px] font-bold uppercase tracking-widest; }
+  .input { @apply w-full rounded-lg border-[1.5px] border-ink bg-paper px-4 py-3 text-[15px] placeholder:text-ink/40 focus:border-violet focus:shadow-violet focus:outline-none; }
+  .label { @apply mb-1.5 block font-label text-xs font-bold uppercase tracking-wider; }
+  .field-error { @apply mt-1 text-sm font-medium text-coral-dark; }
+  .eyebrow { @apply font-label text-xs font-bold uppercase tracking-[0.18em] text-violet; }
+  .skeleton { @apply relative overflow-hidden rounded-lg bg-line; }
+  .skeleton::after { content: ''; @apply absolute inset-0 -translate-x-full animate-[shimmer_1.4s_infinite] bg-gradient-to-r from-transparent via-white/60 to-transparent; }
+  .th { @apply px-4 py-3 text-left font-label text-[11px] font-bold uppercase tracking-widest; }
+  .td { @apply px-4 py-3 align-middle text-sm; }
+}
